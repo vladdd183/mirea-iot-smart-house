@@ -1,0 +1,1 @@
+# mirea-iot-smart-house
