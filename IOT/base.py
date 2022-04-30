@@ -12,6 +12,9 @@ class device():
 
         self.client_id = f'python-mqtt-{randint(0, 1000)}'
 
+        self.data = {'name': name,
+                     'room': room,
+                     'topic': self.topic}
 
         self.client = mqtt.Client(self.client_id)
         self.client.username_pw_set(username, password)
@@ -33,33 +36,30 @@ class device():
         payload = str(msg.payload.decode())
         
         if 'annonce' == payload:
-            data = {'name': self.name,
-                    'room': self.room,
-                    'topic': self.topic,
-                    'return': 'annonce'}
-            self.client.publish(self.home_topic, str(data)) 
+            self.data['return'] = 'annonce'
+            self.client.publish(self.home_topic, str(self.data)) 
         
         self.message_handler(payload)    
 
 
     def on_connect(self, client, obj, flags, rc):
-        data = {'name': self.name,
-                'room': self.room,
-                'topic': self.topic,
-                'return': 'connected'}
-        self.client.publish(self.home_topic, str(data)) 
+        self.data['return'] = 'connect'
+        self.client.publish(self.home_topic, str(self.data)) 
         
     def on_disconnect(self, client, obj, rc):
-        data = {'name': self.name,
-                'room': self.room,
-                'topic': self.topic,
-                'return': 'disconnected'}
-        self.client.publish(self.home_topic, str(data)) 
+        self.data['ruturn'] = 'disconnect'
+        self.client.publish(self.home_topic, str(self.data)) 
 
     def run(self):
         while True:
             pass
-    
-    
+    def message_handler(self, payload):
+        pass
+
+class home():
+    pass
+
+class room()
+
 a = device('home1', 'room4', 'dev1')
 
