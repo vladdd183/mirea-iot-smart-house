@@ -95,9 +95,9 @@ class Lamp(MQTTClient):
 
     def message_handler(self, message):
         match message['cmd'].split():
-            case 'on':
+            case 'on', :
                 self.data['info']['enable'] = True
-            case 'off':
+            case 'off', :
                 self.data['info']['enable'] = False
             case 'intensive', x:
                 self.data['info']['intensive'] = int(x)
@@ -116,9 +116,9 @@ class TV(MQTTClient):
 
     def message_handler(self, message):
         match message['cmd'].split():
-            case 'on':
+            case 'on', :
                 self.data['info']['enable'] = True
-            case 'off':
+            case 'off', :
                 self.data['info']['enable'] = False
             case 'channel', x:
                 self.data['info']['channel'] = int(x)
@@ -281,7 +281,9 @@ class Conditioner(MQTTClient):
                 self.data['info']['temp'] -= 1
             elif self.data['info']['mode'] == 'Warm':
                 self.data['info']['temp'] += 1
-                
+            
+            self.data['info']['time'] -= 1
+
             self.mqtt.publish(self.topic, json.dumps(self.data['info']))
             
             time.sleep(60)
