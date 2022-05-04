@@ -5,16 +5,6 @@ import time
 from threading import Thread
 
 
-def runInParallel(*fns):
-    proc = []
-    for fn in fns:
-        p = Process(target=fn)
-        p.start()
-        proc.append(p)
-    for p in proc:
-        p.join()
-
-
 
 class MQTTClient:
     def __init__(self, name, room):
@@ -95,11 +85,10 @@ class MQTTClient:
         print(message)
         print('='*20)
 
-
 class Lamp(MQTTClient):
     def initialize(self):
         self.data['info'] = {
-                'enable': True,
+                'enable': False,
                 'intensive': 0,
                 'RGB': (255, 255, 255)
                 }
@@ -114,12 +103,13 @@ class Lamp(MQTTClient):
                 self.data['info']['intensive'] = int(x)
             case 'rgb', r, g, b:
                 self.data['info']['RGB'] = (int(r), int(g), int(b))
-        self.mqtt.publish(self.home_topic, json.dumps(self.data))
+                
+        self.mqtt.publish(self.topic, json.dumps(self.data['info']))
 
 class TV(MQTTClient):
     def initialize(self):
         self.data['info'] = {
-                'enable': True,
+                'enable': False,
                 'channel': 0,
                 'volume': 0
                 }
@@ -135,15 +125,14 @@ class TV(MQTTClient):
             case 'volume', x:
                 self.data['info']['volume'] = int(x)
 
-        self.mqtt.publish(self.home_topic, json.dumps(self.data))
+        self.mqtt.publish(self.topic, json.dumps(self.data['info']))
 
 
 
 class Teapot(MQTTClient):
     def initialize(self):
         self.data['info'] = {
-                'enable': True,
-                'channel': 0,
+                'enable': False,
                 'volume': 0,
                 'temp': 20
                 }
@@ -152,21 +141,170 @@ class Teapot(MQTTClient):
         match message['cmd'].split():
             case 'on', :
                 self.data['info']['enable'] = True
-                Thread(target=self.run).start()
+                self.thr_run = Thread(target=self.run)
+                self.thr_run.start()
             case 'off', :
                 self.data['info']['enable'] = False
-            case 'channel', x:
-                self.data['info']['channel'] = int(x)
             case 'volume', x:
                 self.data['info']['volume'] = int(x)
 
-        self.mqtt.publish(self.home_topic, '='*10)
+        self.mqtt.publish(self.topic, json.dumps(self.data['info']))
 
     def run(self):
         while self.data['info']['temp'] < 100:
             self.data['info']['temp'] += 1
             time.sleep(0.5)
-            self.mqtt.publish(self.home_topic, json.dumps(self.data))
+            self.mqtt.publish(self.topic, json.dumps(self.data['info']))
+            
+            if not self.data['info']['enable']:
+                break
+            
+        self.data['info']['enable'] = False
+        
+        while self.data['info']['temp'] > 100:
+            self.data['info']['temp'] -= 1
+            time.sleep(0.9)
+            self.mqtt.publish(self.topic, json.dumps(self.data['info']))
 
-a1 = Teapot('t11', 'room3')
-a1.start()
+
+
+class CoffeeMachine(MQTTClient):
+    def initialize(self):
+        self.data['info'] = {
+                'enable': False,
+                'CoffeeType': 'Russiano',
+                'coffee': 20,
+                'water': 30,
+                'milk': 10
+                }
+
+    def message_handler(self, message):
+        match message['cmd'].split():
+            case 'on', :
+                self.data['info']['enable'] = True
+                self.thr_run = Thread(target=self.run)
+                self.thr_run.start()
+            case 'off', :
+                self.data['info']['enable'] = False
+            case 'CoffeeType', x:
+                self.data['info']['CoffeeType'] = x
+            case 'coffee', x:
+                self.data['info']['coffee'] = int(x)
+            case 'water', x:
+                self.data['info']['water'] = int(x)
+            case 'milk', x:
+                self.data['info']['milk'] = int(x)
+
+        self.mqtt.publish(self.topic, json.dumps(self.data['info']))
+
+    def run(self):
+        while (self.data['info']['coffee'] < 100) and (self.data['info']['water'] > 0) and (self.data['info']['milk'] > 0):
+            self.data['info']['coffee'] += 1
+            self.data['info']['water'] -= 1
+            self.data['info']['milk'] -= 1
+            time.sleep(0.5)
+            self.mqtt.publish(self.topic, json.dumps(self.data['info']))
+
+            if not self.data['info']['enable']:
+                break
+
+
+
+class Humidifier(MQTTClient):
+    def initialize(self):
+        self.data['info'] = {
+                'enable': False,
+                'water': 100,
+                'humidity': 20
+                }
+
+    def message_handler(self, message):
+        match message['cmd'].split():
+            case 'on', :
+                self.data['info']['enable'] = True
+                self.thr_run = Thread(target=self.run)
+                self.thr_run.start()
+            case 'off', :
+                self.data['info']['enable'] = False
+            case 'water', x:
+                self.data['info']['water'] = int(x)
+            case 'humidity', x:
+                self.data['info']['humidity'] = int(x)
+
+        self.mqtt.publish(self.topic, json.dumps(self.data['info']))
+
+    def run(self):
+        while self.data['info']['humidity'] < 100 and self.data['info']['water'] > 0:
+            self.data['info']['humidity'] += 1
+            self.data['info']['water'] -= 1
+            time.sleep(0.5)
+            self.mqtt.publish(self.topic, json.dumps(self.data['info']))
+            
+            if not self.data['info']['enable']:
+                break
+            
+        self.data['info']['enable'] = False
+        
+        while self.data['info']['humidity'] > 0:
+            self.data['info']['humidity'] -= 1
+            time.sleep(0.9)
+            self.mqtt.publish(self.topic, json.dumps(self.data['info']))
+
+
+class Conditioner(MQTTClient):
+    def initialize(self):
+        self.data['info'] = {
+                'enable': False,
+                'temp': 30,
+                'time': 20,
+                'mode': 'Frost'
+                }
+
+    def message_handler(self, message):
+        match message['cmd'].split():
+            case 'on', :
+                self.data['info']['enable'] = True
+                self.thr_run = Thread(target=self.run)
+                self.thr_run.start()
+            case 'off', :
+                self.data['info']['enable'] = False
+            case 'temp', x:
+                self.data['info']['temp'] = int(x)
+            case 'mode', x:
+                self.data['info']['mode'] = x
+
+        self.mqtt.publish(self.topic, json.dumps(self.data['info']))
+
+    def run(self):
+        while self.data['info']['time'] > 0:
+            if self.data['info']['mode'] == 'Frost':
+                self.data['info']['temp'] -= 1
+            elif self.data['info']['mode'] == 'Warm':
+                self.data['info']['temp'] += 1
+                
+            self.mqtt.publish(self.topic, json.dumps(self.data['info']))
+            
+            time.sleep(60)
+            
+            if not self.data['info']['enable']:
+                break
+            
+        self.data['info']['enable'] = False
+        
+class Music(MQTTClient):
+    def initialize(self):
+        self.data['info'] = {
+                'enable': False,
+                'volume': 0
+                }
+
+    def message_handler(self, message):
+        match message['cmd'].split():
+            case 'on', :
+                self.data['info']['enable'] = True
+            case 'off', :
+                self.data['info']['enable'] = False
+            case 'volume', x:
+                self.data['info']['volume'] = int(x)
+                
+        self.mqtt.publish(self.topic, json.dumps(self.data['info']))
