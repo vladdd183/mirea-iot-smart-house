@@ -160,8 +160,18 @@ body {
 
 .roomPlus{
   position: absolute;
-  right: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 1.4em;
+  transition: .2s;
 }
+
+.roomPlus>svg{
+  transition: .1s;
+}
+
+
 
 .room_box {
   position: relative;
@@ -189,6 +199,13 @@ body {
 
 .room_box:hover>.deleteRoom{
   opacity: 1;
+}
+.deleteRoom>svg{
+  transition: .1s;
+}
+.deleteRoom:hover>svg{
+  fill: #e01508;
+  filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, .7));
 }
 
 .room_box_text {
@@ -261,6 +278,15 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
+@media screen and (min-width: 1001px){
+  .roomPlus:hover>svg{
+    fill: #48BF62;
+    filter: url(#plusShadow);
+  }
+  .roomPlus:hover{
+    transform: rotate(180deg);
+  }
+}
 
 @media (max-width: 1000px) {
   .main_box {
@@ -292,7 +318,13 @@ body {
   .right_menu {
     margin-left: 0px;
   }
-
+  .roomAdder{
+    border-radius: 10em;
+    /*width: 200px;*/
+    min-width: 230px;
+    margin: 0 10px;
+    padding-left: 20px;
+  }
 }
 
 .device_box {
@@ -329,12 +361,12 @@ body {
   overflow: hidden;
   width: 200px;
   height: 200px;
+  border-radius: 30px;
 }
 
 .device_box_left_img img {
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
-  border-radius: 30px;
 }
 
 .device_box_left_text {
