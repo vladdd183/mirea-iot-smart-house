@@ -4,212 +4,236 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">-->
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">-->
     <link rel="stylesheet" href="css/zeroCode.css">
     <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
 </head>
 <body>
-    
-    <div class="header">
-        <div class="nav">
-            <div class="nav_menu">
-                <img src="img/free-icon-menu.png" alt="">
-                <div class="kast_1"></div>
-                <div class="nav_menu_list">
 
-                </div>
+<div class="header">
+    <div class="nav">
+        <div class="nav_menu">
+            <img src="img/free-icon-menu.png" alt="">
+            <div class="kast_1"></div>
+            <div class="nav_menu_list">
+
             </div>
-        </div>
-        <div class="logo">Ваш умный дом</div>
-        <div class="search">
-            <input class="search_main" type="text" onfocus="this.value=''" value="Поиск устройства...">
-            <button class="search_btn"><img src="img/search.png" alt=""></button>
         </div>
     </div>
+    <div class="logo">Ваш умный дом</div>
+    <div class="search">
+        <input class="search_main" type="text" onfoZcus="this.value=''" value="Поиск устройства...">
+        <button class="search_btn"><img src="img/search.png" alt=""></button>
+    </div>
+</div>
 
 
+<div class="main_box">
+    <div class="left_menu">
+        <div class="roomAdder">
+            <div class="roomAdderText">Добавить группу</div>
+            <div class="roomPlus">
+                <svg width="30" height="30" viewBox="0 0 41 41" fill="black" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="plusShadow">
+                            <!-- Shadow offset -->
+                            <feOffset cdx='0' dy='0'/>
+                            <!-- Shadow blur -->
+                            <feGaussianBlur stdDeviation='4' result='offset-blur'/>
 
+                            <!-- Invert drop shadow to make an inset shadow -->
+                            <feComposite operator='out' in='SourceGraphic' in2='offset-blur' result='inverse'/>
 
-    <div class="main_box">
-        <div class="left_menu">
-            <div class="roomAdder">
-                <div class="roomAdderText">Добавить группу</div>
-                <div class="roomPlus">
-                    <svg width="30" height="30" viewBox="0 0 41 41" fill="black" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <filter id="plusShadow">
-                                <!-- Shadow offset -->
-                                <feOffset cdx='0' dy='0'/>
-                                <!-- Shadow blur -->
-                                <feGaussianBlur stdDeviation='4' result='offset-blur'/>
+                            <!-- Cut color inside shadow -->
+                            <feFlood flood-color='black' flood-opacity='.95' result='color'/>
+                            <feComposite operator='in' in='color' in2='inverse' result='shadow'/>
 
-                                <!-- Invert drop shadow to make an inset shadow -->
-                                <feComposite operator='out' in='SourceGraphic' in2='offset-blur' result='inverse'/>
-
-                                <!-- Cut color inside shadow -->
-                                <feFlood flood-color='black' flood-opacity='.95' result='color'/>
-                                <feComposite operator='in' in='color' in2='inverse' result='shadow'/>
-
-                                <!-- Placing shadow over element -->
-                                <feComposite operator='over' in='shadow' in2='SourceGraphic'/>
-                            </filter>
-                        </defs>
-                        <path d="M20.5 0.59375C9.52381 0.59375 0.59375 9.52381 0.59375 20.5C0.59375 31.4762 9.52381 40.4062 20.5 40.4062C31.4762 40.4062 40.4062 31.4762 40.4062 20.5C40.4062 9.52381 31.4762 0.59375 20.5 0.59375ZM28.1562 22.0312H22.0312V28.1562C22.0312 28.5624 21.8699 28.9518 21.5828 29.239C21.2956 29.5262 20.9061 29.6875 20.5 29.6875C20.0939 29.6875 19.7044 29.5262 19.4172 29.239C19.1301 28.9518 18.9688 28.5624 18.9688 28.1562V22.0312H12.8438C12.4376 22.0312 12.0482 21.8699 11.761 21.5828C11.4738 21.2956 11.3125 20.9061 11.3125 20.5C11.3125 20.0939 11.4738 19.7044 11.761 19.4172C12.0482 19.1301 12.4376 18.9688 12.8438 18.9688H18.9688V12.8438C18.9688 12.4376 19.1301 12.0482 19.4172 11.761C19.7044 11.4738 20.0939 11.3125 20.5 11.3125C20.9061 11.3125 21.2956 11.4738 21.5828 11.761C21.8699 12.0482 22.0312 12.4376 22.0312 12.8438V18.9688H28.1562C28.5624 18.9688 28.9518 19.1301 29.239 19.4172C29.5262 19.7044 29.6875 20.0939 29.6875 20.5C29.6875 20.9061 29.5262 21.2956 29.239 21.5828C28.9518 21.8699 28.5624 22.0312 28.1562 22.0312Z" />
-                    </svg>
-
-                </div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Кухня</div>
-                <div class="deleteRoom">
-                    <svg width="28" height="28" viewBox="0 0 38 38" fill="white" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.88672 16.4219H16.4219V2.88672C16.4219 1.46875 17.582 0.308594 19 0.308594C20.418 0.308594 21.5781 1.46875 21.5781 2.88672V16.4219H35.1133C36.5312 16.4219 37.6914 17.582 37.6914 19C37.6914 20.418 36.5312 21.5781 35.1133 21.5781H21.5781V35.1133C21.5781 36.5312 20.418 37.6914 19 37.6914C17.582 37.6914 16.4219 36.5312 16.4219 35.1133V21.5781H2.88672C1.46875 21.5781 0.308594 20.418 0.308594 19C0.308594 17.582 1.46875 16.4219 2.88672 16.4219Z"/>
-
-                    </svg>
-                </div>
-            </div>
-    
-            <div class="room_box">
-                <div class="room_box_text">Спальня</div>
-                
-            </div>
-    
-            <div class="room_box">
-                <div class="room_box_text">Уборная</div>
-                
-            </div>
-    
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-    
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-            <div class="room_box">
-                <div class="room_box_text">Ванная</div>
-            </div>
-        </div>
-
-
-
-
-        <div class="right_menu">
-            <div class="add_device">
-                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.88672 16.4219H16.4219V2.88672C16.4219 1.46875 17.582 0.308594 19 0.308594C20.418 0.308594 21.5781 1.46875 21.5781 2.88672V16.4219H35.1133C36.5312 16.4219 37.6914 17.582 37.6914 19C37.6914 20.418 36.5312 21.5781 35.1133 21.5781H21.5781V35.1133C21.5781 36.5312 20.418 37.6914 19 37.6914C17.582 37.6914 16.4219 36.5312 16.4219 35.1133V21.5781H2.88672C1.46875 21.5781 0.308594 20.418 0.308594 19C0.308594 17.582 1.46875 16.4219 2.88672 16.4219Z" fill="black"/>
+                            <!-- Placing shadow over element -->
+                            <feComposite operator='over' in='shadow' in2='SourceGraphic'/>
+                        </filter>
+                    </defs>
+                    <path d="M20.5 0.59375C9.52381 0.59375 0.59375 9.52381 0.59375 20.5C0.59375 31.4762 9.52381 40.4062 20.5 40.4062C31.4762 40.4062 40.4062 31.4762 40.4062 20.5C40.4062 9.52381 31.4762 0.59375 20.5 0.59375ZM28.1562 22.0312H22.0312V28.1562C22.0312 28.5624 21.8699 28.9518 21.5828 29.239C21.2956 29.5262 20.9061 29.6875 20.5 29.6875C20.0939 29.6875 19.7044 29.5262 19.4172 29.239C19.1301 28.9518 18.9688 28.5624 18.9688 28.1562V22.0312H12.8438C12.4376 22.0312 12.0482 21.8699 11.761 21.5828C11.4738 21.2956 11.3125 20.9061 11.3125 20.5C11.3125 20.0939 11.4738 19.7044 11.761 19.4172C12.0482 19.1301 12.4376 18.9688 12.8438 18.9688H18.9688V12.8438C18.9688 12.4376 19.1301 12.0482 19.4172 11.761C19.7044 11.4738 20.0939 11.3125 20.5 11.3125C20.9061 11.3125 21.2956 11.4738 21.5828 11.761C21.8699 12.0482 22.0312 12.4376 22.0312 12.8438V18.9688H28.1562C28.5624 18.9688 28.9518 19.1301 29.239 19.4172C29.5262 19.7044 29.6875 20.0939 29.6875 20.5C29.6875 20.9061 29.5262 21.2956 29.239 21.5828C28.9518 21.8699 28.5624 22.0312 28.1562 22.0312Z"/>
                 </svg>
 
             </div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Кухня</div>
+            <div class="deleteRoom">
+                <svg width="28" height="28" viewBox="0 0 38 38" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.88672 16.4219H16.4219V2.88672C16.4219 1.46875 17.582 0.308594 19 0.308594C20.418 0.308594 21.5781 1.46875 21.5781 2.88672V16.4219H35.1133C36.5312 16.4219 37.6914 17.582 37.6914 19C37.6914 20.418 36.5312 21.5781 35.1133 21.5781H21.5781V35.1133C21.5781 36.5312 20.418 37.6914 19 37.6914C17.582 37.6914 16.4219 36.5312 16.4219 35.1133V21.5781H2.88672C1.46875 21.5781 0.308594 20.418 0.308594 19C0.308594 17.582 1.46875 16.4219 2.88672 16.4219Z"/>
 
-            <div class="test_1">Your devices</div>
-            <div class="right_menu_down">
-                <div class="device_box">
-                    <div class="device_box_left">
-                        <div class="device_box_left_img">
-                            <img src="img/cuted%20bm.jpg" alt="">
-                        </div>
-                        <div class="device_box_left_text">
-                            <div class="devName">
-                                <h3>Name</h3>
-                            </div>
-                            <div class="devInfo">
-                                <p>Lorem, ipsum dolor sit amet consectetuasdasdasdsassssss ss sdasd a assad  as sdf a asda asd sf ssdf  sdfsssr</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="device_box_right">
-                        <div class="devMG">
-                            <div class="turn_on">
-                                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <filter id="onOffShadow">
-                                            <!-- Shadow offset -->
-                                            <feOffset cdx='0' dy='4'/>
-                                            <!-- Shadow blur -->
-                                            <feGaussianBlur stdDeviation='4' result='offset-blur'/>
-
-                                            <!-- Invert drop shadow to make an inset shadow -->
-                                            <feComposite operator='out' in='SourceGraphic' in2='offset-blur' result='inverse'/>
-
-                                            <!-- Cut color inside shadow -->
-                                            <feFlood flood-color='black' flood-opacity='.95' result='color'/>
-                                            <feComposite operator='in' in='color' in2='inverse' result='shadow'/>
-
-                                            <!-- Placing shadow over element -->
-                                            <feComposite operator='over' in='shadow' in2='SourceGraphic'/>
-                                        </filter>
-                                    </defs>
-                                    <path d="M35 0C15.6712 0 0 15.6712 0 35C0 54.3288 15.6712 70 35 70C54.3288 70 70 54.3288 70 35C70 15.6712 54.3288 0 35 0ZM30.625 13.125C30.625 10.9375 32.8125 8.75 35 8.75C37.1875 8.75 39.375 10.9375 39.375 13.125V30.625C39.375 32.8125 37.1875 35 35 35C32.8125 35 30.625 32.8125 30.625 30.625V13.125ZM35 56.875C22.9163 56.875 13.125 47.0838 13.125 35C13.125 26.0269 18.5238 18.3225 26.25 14.945V25.2175C23.5681 27.6194 21.875 31.1106 21.875 35C21.875 42.2494 27.7506 48.125 35 48.125C42.2494 48.125 48.125 42.2494 48.125 35C48.125 31.1106 46.4319 27.6194 43.75 25.2175V14.945C51.4762 18.3225 56.875 26.0269 56.875 35C56.875 47.0838 47.0838 56.875 35 56.875Z"/>
-                                </svg>
-                        </div>
-                            <div class="delete">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Trash</title><path d="M296 64h-80a7.91 7.91 0 00-8 8v24h96V72a7.91 7.91 0 00-8-8z" fill="none"/>
-                                    <path fill="#C71105" d="M432 96h-96V72a40 40 0 00-40-40h-80a40 40 0 00-40 40v24H80a16 16 0 000 32h17l19 304.92c1.42 26.85 22 47.08 48 47.08h184c26.13 0 46.3-19.78 48-47l19-305h17a16 16 0 000-32zM192.57 416H192a16 16 0 01-16-15.43l-8-224a16 16 0 1132-1.14l8 224A16 16 0 01192.57 416zM272 400a16 16 0 01-32 0V176a16 16 0 0132 0zm32-304h-96V72a7.91 7.91 0 018-8h80a7.91 7.91 0 018 8zm32 304.57A16 16 0 01320 416h-.58A16 16 0 01304 399.43l8-224a16 16 0 1132 1.14z"/>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="devPropToggler"></div>
-                        <div class="devPropToggler"></div>
-                        <div class="devPropToggler"></div>
-                    </div>
-                
-                </div>
-    
-                <div class="device_box">
-                
-                </div>
-        
-                <div class="device_box">
-                    
-                </div>
-        
-                <div class="device_box">
-                    
-                </div>
-            
+                </svg>
             </div>
         </div>
 
+        <div class="room_box">
+            <div class="room_box_text">Спальня</div>
+
+        </div>
+
+        <div class="room_box">
+            <div class="room_box_text">Уборная</div>
+
+        </div>
+
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
+        <div class="room_box">
+            <div class="room_box_text">Ванная</div>
+        </div>
     </div>
 
 
-    
+    <div class="right_menu">
+        <div class="add_device">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.88672 16.4219H16.4219V2.88672C16.4219 1.46875 17.582 0.308594 19 0.308594C20.418 0.308594 21.5781 1.46875 21.5781 2.88672V16.4219H35.1133C36.5312 16.4219 37.6914 17.582 37.6914 19C37.6914 20.418 36.5312 21.5781 35.1133 21.5781H21.5781V35.1133C21.5781 36.5312 20.418 37.6914 19 37.6914C17.582 37.6914 16.4219 36.5312 16.4219 35.1133V21.5781H2.88672C1.46875 21.5781 0.308594 20.418 0.308594 19C0.308594 17.582 1.46875 16.4219 2.88672 16.4219Z"
+                      fill="black"/>
+            </svg>
 
+        </div>
 
+        <div class="test_1">Your devices</div>
+        <div class="right_menu_down">
+            <div class="device_box">
+                <div class="device_box_left">
+                    <div class="device_box_left_img">
+                        <img src="img/cuted%20bm.jpg" alt="">
+                    </div>
+                    <div class="device_box_left_text">
+                        <div class="devName">
+                            <h3>Name</h3>
+                        </div>
+                        <div class="devInfo">
+                            <p>Lorem, ipsum dolor sit amet consectetuasdasdasdsassssss ss sdasd a assad as sdf a asda
+                                asd sf ssdf sdfsssr</p>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="device_box_right">
+                    <div class="devMG">
+                        <div class="turn_on">
+                            <svg width="70" height="70" viewBox="0 0 70 70" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <filter id="onOffShadow">
+                                        <!-- Shadow offset -->
+                                        <feOffset cdx='0' dy='4'/>
+                                        <!-- Shadow blur -->
+                                        <feGaussianBlur stdDeviation='4' result='offset-blur'/>
 
-    
+                                        <!-- Invert drop shadow to make an inset shadow -->
+                                        <feComposite operator='out' in='SourceGraphic' in2='offset-blur'
+                                                     result='inverse'/>
+
+                                        <!-- Cut color inside shadow -->
+                                        <feFlood flood-color='black' flood-opacity='.95' result='color'/>
+                                        <feComposite operator='in' in='color' in2='inverse' result='shadow'/>
+
+                                        <!-- Placing shadow over element -->
+                                        <feComposite operator='over' in='shadow' in2='SourceGraphic'/>
+                                    </filter>
+                                </defs>
+                                <path d="M35 0C15.6712 0 0 15.6712 0 35C0 54.3288 15.6712 70 35 70C54.3288 70 70 54.3288 70 35C70 15.6712 54.3288 0 35 0ZM30.625 13.125C30.625 10.9375 32.8125 8.75 35 8.75C37.1875 8.75 39.375 10.9375 39.375 13.125V30.625C39.375 32.8125 37.1875 35 35 35C32.8125 35 30.625 32.8125 30.625 30.625V13.125ZM35 56.875C22.9163 56.875 13.125 47.0838 13.125 35C13.125 26.0269 18.5238 18.3225 26.25 14.945V25.2175C23.5681 27.6194 21.875 31.1106 21.875 35C21.875 42.2494 27.7506 48.125 35 48.125C42.2494 48.125 48.125 42.2494 48.125 35C48.125 31.1106 46.4319 27.6194 43.75 25.2175V14.945C51.4762 18.3225 56.875 26.0269 56.875 35C56.875 47.0838 47.0838 56.875 35 56.875Z"/>
+                            </svg>
+                        </div>
+                        <div class="delete">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>
+                                Trash</title>
+                                <path d="M296 64h-80a7.91 7.91 0 00-8 8v24h96V72a7.91 7.91 0 00-8-8z" fill="none"/>
+                                <path fill="#C71105"
+                                      d="M432 96h-96V72a40 40 0 00-40-40h-80a40 40 0 00-40 40v24H80a16 16 0 000 32h17l19 304.92c1.42 26.85 22 47.08 48 47.08h184c26.13 0 46.3-19.78 48-47l19-305h17a16 16 0 000-32zM192.57 416H192a16 16 0 01-16-15.43l-8-224a16 16 0 1132-1.14l8 224A16 16 0 01192.57 416zM272 400a16 16 0 01-32 0V176a16 16 0 0132 0zm32-304h-96V72a7.91 7.91 0 018-8h80a7.91 7.91 0 018 8zm32 304.57A16 16 0 01320 416h-.58A16 16 0 01304 399.43l8-224a16 16 0 1132 1.14z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="devPropToggler">
+                        <div class="selArrow left"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_13_239)">
+                                <path d="M12.5 25C10.0277 25 7.61099 24.2669 5.55538 22.8934C3.49976 21.5199 1.89761 19.5676 0.951512 17.2835C0.00541601 14.9995 -0.242126 12.4861 0.24019 10.0614C0.722505 7.63661 1.91301 5.40932 3.66117 3.66117C5.40933 1.91301 7.63662 0.7225 10.0614 0.240185C12.4861 -0.24213 14.9995 0.00541115 17.2836 0.951506C19.5676 1.8976 21.5199 3.49976 22.8934 5.55537C24.2669 7.61099 25 10.0277 25 12.5C24.9964 15.8141 23.6783 18.9914 21.3348 21.3348C18.9914 23.6783 15.8141 24.9964 12.5 25V25ZM12.5 1.17188C10.2595 1.17188 8.06934 1.83626 6.20644 3.08101C4.34354 4.32576 2.89158 6.09497 2.03418 8.16491C1.17678 10.2349 0.952449 12.5126 1.38955 14.71C1.82665 16.9074 2.90554 18.9259 4.48981 20.5102C6.07408 22.0945 8.09256 23.1734 10.29 23.6105C12.4874 24.0476 14.7651 23.8232 16.8351 22.9658C18.905 22.1084 20.6742 20.6565 21.919 18.7936C23.1637 16.9307 23.8281 14.7405 23.8281 12.5C23.8245 9.49671 22.6299 6.61745 20.5062 4.4938C18.3826 2.37015 15.5033 1.17549 12.5 1.17188Z" fill="black"/>
+                                <path d="M14.4765 17.9922C14.3667 18.1019 14.2177 18.1636 14.0625 18.1636C13.9072 18.1636 13.7583 18.1019 13.6484 17.9922L8.57029 12.9141C8.46056 12.8042 8.39893 12.6553 8.39893 12.5C8.39893 12.3448 8.46056 12.1958 8.57029 12.086L13.6484 7.00784C13.7595 6.90434 13.9064 6.848 14.0582 6.85067C14.21 6.85335 14.3548 6.91485 14.4622 7.0222C14.5695 7.12955 14.631 7.27439 14.6337 7.42618C14.6364 7.57798 14.58 7.72489 14.4765 7.83597L9.81247 12.5L14.4765 17.1641C14.5863 17.274 14.6479 17.4229 14.6479 17.5782C14.6479 17.7334 14.5863 17.8824 14.4765 17.9922Z" fill="black"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_13_239">
+                                    <rect width="25" height="25" fill="white" transform="matrix(1 0 0 -1 0 25)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        </div>
+                        <div class="selectorCondInfo">
+                            sdfdf
+                        </div>
+                        <div class="selArrow right"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_13_224)">
+                                <path d="M12.5 -1.09279e-06C14.9723 -8.76653e-07 17.389 0.733112 19.4446 2.10663C21.5002 3.48015 23.1024 5.43238 24.0485 7.71646C24.9946 10.0005 25.2421 12.5139 24.7598 14.9386C24.2775 17.3634 23.087 19.5907 21.3388 21.3388C19.5907 23.087 17.3634 24.2775 14.9386 24.7598C12.5139 25.2421 10.0005 24.9946 7.71645 24.0485C5.43237 23.1024 3.48014 21.5002 2.10662 19.4446C0.733103 17.389 -8.93831e-06 14.9723 -8.72218e-06 12.5C0.00360981 9.1859 1.32173 6.00858 3.66516 3.66516C6.00858 1.32174 9.1859 0.00361748 12.5 -1.09279e-06V-1.09279e-06ZM12.5 23.8281C14.7405 23.8281 16.9307 23.1637 18.7936 21.919C20.6565 20.6742 22.1084 18.905 22.9658 16.8351C23.8232 14.7651 24.0475 12.4874 23.6105 10.29C23.1734 8.09255 22.0945 6.07407 20.5102 4.48981C18.9259 2.90554 16.9074 1.82664 14.71 1.38954C12.5126 0.952443 10.2349 1.17678 8.16491 2.03418C6.09496 2.89157 4.32575 4.34353 3.081 6.20643C1.83625 8.06933 1.17187 10.2595 1.17187 12.5C1.17548 15.5033 2.37014 18.3825 4.49379 20.5062C6.61744 22.6298 9.4967 23.8245 12.5 23.8281Z" fill="black"/>
+                                <path d="M10.5235 7.00778C10.6333 6.89806 10.7823 6.83643 10.9375 6.83643C11.0928 6.83643 11.2417 6.89806 11.3516 7.00778L16.4297 12.0859C16.5394 12.1958 16.6011 12.3447 16.6011 12.5C16.6011 12.6552 16.5394 12.8042 16.4297 12.914L11.3516 17.9922C11.2405 18.0957 11.0936 18.152 10.9418 18.1493C10.79 18.1466 10.6452 18.0852 10.5378 17.9778C10.4305 17.8704 10.369 17.7256 10.3663 17.5738C10.3636 17.422 10.42 17.2751 10.5235 17.164L15.1875 12.5L10.5235 7.83591C10.4137 7.72605 10.3521 7.57712 10.3521 7.42185C10.3521 7.26657 10.4137 7.11765 10.5235 7.00778Z" fill="black"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_13_224">
+                                    <rect width="25" height="25" fill="white" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 25 0)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        </div>
+                    </div>
+                    <div class="devPropToggler"></div>
+                    <div class="devPropToggler"></div>
+                </div>
+
+            </div>
+
+            <div class="device_box">
+
+            </div>
+
+            <div class="device_box">
+
+            </div>
+
+            <div class="device_box">
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 
 </body>
 </html>

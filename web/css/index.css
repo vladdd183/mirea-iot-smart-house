@@ -3,7 +3,15 @@ body {
   overflow: hidden;
   font-family: sans-serif;
 }
-
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
 .header {
   background-color: #48BF62;
   display: -webkit-box;
@@ -389,6 +397,9 @@ body {
 }
 
 .device_box_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 50%;
   height: 100%;
 }
@@ -399,7 +410,8 @@ body {
   display: flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin-bottom: 45px;
+  /*margin-bottom: 45px;*/
+  margin-bottom: 30px;
 }
 
 .turn_on {
@@ -440,12 +452,30 @@ body {
 }
 
 .devPropToggler {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 0 auto;
-  width: 85%;
-  height: 15%;
+  width: 90%;
+  height: 16%;
   background-color: #ff9d7f;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
+  padding: 10px 15px;
   border-radius: 12px;
+}
+
+.selArrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.selectorCondInfo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 60px);
 }
 
 .nav_menu_list {
